@@ -178,7 +178,19 @@ export class NotyfView {
       dismissWrapper.appendChild(dismissButton);
       wrapper.appendChild(dismissWrapper);
       notificationElem.classList.add(`notyf__toast--dismissible`);
-      dismissButton.addEventListener('click', (event) => {
+      if (options.clickAnywhereToClose) {
+        wrapper.addEventListener('click', (event) => {
+          this.events[NotyfEvent.Dismiss]?.({ target: notification, event });
+          event.stopPropagation();
+        });
+      } else {
+        dismissButton.addEventListener('click', (event) => {
+          this.events[NotyfEvent.Dismiss]?.({ target: notification, event });
+          event.stopPropagation();
+        });
+      }
+    } else if (options.clickAnywhereToClose) {
+      wrapper.addEventListener('click', (event) => {
         this.events[NotyfEvent.Dismiss]?.({ target: notification, event });
         event.stopPropagation();
       });

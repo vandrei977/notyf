@@ -34,6 +34,8 @@ export interface INotyfNotificationOptions {
   ripple: boolean;
   position: INotyfPosition;
   dismissible: boolean;
+  clickAnywhereToClose: boolean;
+  pauseOnHover: boolean;
 }
 
 export interface INotyfOptions {
@@ -42,6 +44,8 @@ export interface INotyfOptions {
   ripple: boolean;
   position: INotyfPosition;
   dismissible: boolean;
+  clickAnywhereToClose: boolean;
+  pauseOnHover: boolean;
 }
 
 export const DEFAULT_OPTIONS: INotyfOptions = {
@@ -72,4 +76,6 @@ export const DEFAULT_OPTIONS: INotyfOptions = {
     y: 'bottom',
   },
   dismissible: false,
+  clickAnywhereToClose: false,
+  pauseOnHover: false,
 };
